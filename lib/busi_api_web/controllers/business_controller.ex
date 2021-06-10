@@ -11,6 +11,10 @@ defmodule BusiApiWeb.BusinessController do
     render(conn, "index.json", business: business)
   end
 
+  def list_businesses do
+    Repo.all(Business)
+  end
+  
   def create(conn, %{"business" => business_params}) do
     with {:ok, %Business{} = business} <- Directory.create_business(business_params) do
       conn
