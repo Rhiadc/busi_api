@@ -7,7 +7,7 @@ use Mix.Config
 # Run `mix help test` for more information.
 config :busi_api, BusiApi.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "159753",
   database: "busi_api_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
