@@ -5,8 +5,18 @@ defmodule BusiApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :browser do
+    plug(:accepts, ["html"])
+  end
+
+
   scope "/api", BusiApiWeb do
     pipe_through :api
+  end
+
+  scope "/", BusiApiWeb do
+    pipe_through :browser
+    get "/", DefaultController, :index
   end
 
   # Enables LiveDashboard only for development
