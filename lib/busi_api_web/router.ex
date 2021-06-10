@@ -19,6 +19,11 @@ defmodule BusiApiWeb.Router do
     get "/", DefaultController, :index
   end
 
+  scope "/api", BusiApiWeb do
+    pipe_through :api
+    resources "/businesses", BusinessController, except: [:new, :edit]
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
